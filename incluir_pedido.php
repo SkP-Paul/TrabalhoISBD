@@ -13,4 +13,3 @@
   mysqli_query($con, $sql);
   mysqli_close($con);
   header("location: ./listar_pedido.php");
-?>

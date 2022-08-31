@@ -3,4 +3,3 @@
   $login = "root";
   $senha = "";
   $bd = "empresa";
-?>
