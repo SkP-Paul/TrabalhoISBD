@@ -122,75 +122,75 @@ ADD CONSTRAINT fk_con_produto FOREIGN KEY (idProduto)
         ON DELETE CASCADE;
 
 
--- INSERÇÃO DAS FILIAIS
+-- INSERcaO DAS FILIAIS
 
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
-VALUES ('64.045.511/0001-02', '35352-971', 'Diego e Samuel Construções ME', 659, 'Jardim Record', 'Rua Ipauçu');
+VALUES ('64045511000102', '35352971', 'Diego e Samuel Construcoes ME', 659, 'Jardim Record', 'Rua Ipaucu');
 
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
-VALUES ('25.408.265/0001-54', '07243-270', 'Yuri e Paulo Telecomunicações ME', 656, 'Parque das Nações', 'Rua Lago Verde');
+VALUES ('25408265000154', '07243270', 'Yuri e Paulo Telecomunicacoes ME', 656, 'Parque das Nacoes', 'Rua Lago Verde');
 
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
-VALUES ('47.581.605/0001-87', '01128-080', 'Rayssa e Igor Comercio de Bebidas ME', 513, 'Bom Retiro', 'Rua Adoração');
+VALUES ('47581605000187', '01128080', 'Rayssa e Igor Comercio de Bebidas ME', 513, 'Bom Retiro', 'Rua Adoracao');
 
--- INSERÇÃO DOS FUNCIONÁRIOS
+-- INSERcaO DOS FUNCIONaRIOS
 
 -- FILIAL 1
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('158.037.226-00', 'Elisa Valentina Malu Lima', 'A', 1);
+VALUES ('15803722600', 'Elisa Valentina Malu Lima', 'A', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('852.439.303-34', 'Francisca Allana Olivia Martins', 'C', 1);
+VALUES ('85243930334', 'Francisca Allana Olivia Martins', 'C', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('507.172.928-86', 'Noah Luiz Davi Ramos', 'G', 1);
+VALUES ('50717292886', 'Noah Luiz Davi Ramos', 'G', 1);
 
 INSERT INTO Pessoa (cnh, cpf, nome, tipo, idFilial)
-VALUES ('32077430133', '234.577.005-83', 'André César Peixoto', 'E', 1);
+VALUES ('32077430133', '23457700583', 'Andre Cesar Peixoto', 'E', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('891.693.173-80', 'Severino Caleb Baptista', 'O', 1);
+VALUES ('89169317380', 'Severino Caleb Baptista', 'O', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('852.249.982-98', 'Francisco Luís Bruno Caldeira', 'O', 1);
+VALUES ('85224998298', 'Francisco Luis Bruno Caldeira', 'O', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('083.512.436-39', 'Sebastião Matheus dos Santos', 'O', 1);
+VALUES ('08351243639', 'Sebastiao Matheus dos Santos', 'O', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('991.816.715-71', 'Isabella Fernanda Andreia Gonçalves', 'O', 1);
+VALUES ('99181671571', 'Isabella Fernanda Andreia Goncalves', 'O', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('196.402.350-59', 'Yuri Hugo Emanuel Ribeiro', 'O', 1);
+VALUES ('19640235059', 'Yuri Hugo Emanuel Ribeiro', 'O', 1);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('544.712.835-88', 'Débora Luana Flávia Campos', 'O', 1);
+VALUES ('54471283588', 'Debora Luana Flavia Campos', 'O', 1);
 
 
 
 -- FILIAL 2
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('529.441.667-00', 'Simone Isabelly Gomes', 'A', 2);
+VALUES ('52944166700', 'Simone Isabelly Gomes', 'A', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('496.028.079-46', 'Hugo Yago Bernardes', 'C', 2);
+VALUES ('49602807946', 'Hugo Yago Bernardes', 'C', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('273.754.740-79', 'Gael Carlos Eduardo Enzo Jesus', 'G', 2);
+VALUES ('27375474079', 'Gael Carlos Eduardo Enzo Jesus', 'G', 2);
 
 INSERT INTO Pessoa (cnh, cpf, nome, tipo, idFilial)
-VALUES ('05967202760', '762.077.352-50', 'Lúcia Lavínia Eliane Fernandes', 'E', 2);
+VALUES ('05967202760', '76207735250', 'Lúcia Lavinia Eliane Fernandes', 'E', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('548.171.654-21', 'Sara Tereza Brito', 'O', 2);
+VALUES ('54817165421', 'Sara Tereza Brito', 'O', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('05032940712', 'Liz Andreia Nascimento', 'O', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('69801542497', 'Rodrigo Bryan Miguel Assunção', 'O', 2);
+VALUES ('69801542497', 'Rodrigo Bryan Miguel Assuncao', 'O', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('77298854097', 'Eduardo Nelson Samuel Silva', 'O', 2);
@@ -199,7 +199,7 @@ INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('09249973705', 'Sophia Isabel Sara Caldeira', 'O', 2);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('85402091447', 'Vitor João Barros', 'O', 2);
+VALUES ('85402091447', 'Vitor Joao Barros', 'O', 2);
 
 
 
@@ -215,7 +215,7 @@ INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('86202312866', 'Teresinha Mariana Isabel Castro', 'G', 3);
 
 INSERT INTO Pessoa (cnh, cpf, nome, tipo, idFilial)
-VALUES ('20422482578', '76803987477', 'Raquel Eloá Nina Moura', 'E', 3);
+VALUES ('20422482578', '76803987477', 'Raquel Eloa Nina Moura', 'E', 3);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('32133594590', 'Isabela Luna Drumond', 'O', 3);
@@ -230,75 +230,75 @@ INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('33895259802', 'Andreia Daiane Ferreira', 'O', 3);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('62398228339', 'Isabel Jaqueline Aparício', 'O', 3);
+VALUES ('62398228339', 'Isabel Jaqueline Aparicio', 'O', 3);
 
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('73850194710', 'Alexandre Cauê Bruno da Rocha', 'O', 3);
 
 
 
--- INSERÇÃO DE ENDEREÇOS
+-- INSERcaO DE ENDEREcOS
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (1, 'Passeio da Algaroba', 'Dendê', '60714-650', 478);
+VALUES (1, 'Passeio da Algaroba', 'Dendê', '60714650', 478);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (2, 'Rua D', 'Carumbé', '78050-755', 390);
+VALUES (2, 'Rua D', 'Carumbe', '78050755', 390);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (3, 'Rua Comendador Pedro Alelaf', 'Pedra Mole', '64066-560', 669);
+VALUES (3, 'Rua Comendador Pedro Alelaf', 'Pedra Mole', '64066560', 669);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (4, 'Beco Afonso Pena', 'Centro', '69020-540', 569);
+VALUES (4, 'Beco Afonso Pena', 'Centro', '69020540', 569);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (5, 'Rua Açailândia', 'Parque Guajará (Icoaraci)', '66821-105', 291);
+VALUES (5, 'Rua Acailandia', 'Parque Guajara (Icoaraci)', '66821105', 291);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (6, 'Rua Ecoporanga', 'Zumbi', '29302-010', 197);
+VALUES (6, 'Rua Ecoporanga', 'Zumbi', '29302010', 197);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (7, 'Rua Fiscal Pedro Leitão', 'São Francisco', '57602-420', 838);
+VALUES (7, 'Rua Fiscal Pedro Leitao', 'Sao Francisco', '57602420', 838);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (8, 'Estrada Amapá', 'Praia do Amapá', '69906-642', 890);
+VALUES (8, 'Estrada Amapa', 'Praia do Amapa', '69906642', 890);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (9, 'Rua das Camélias', 'Parque das Nações', '59159-535', 806);
+VALUES (9, 'Rua das Camelias', 'Parque das Nacoes', '59159535', 806);
 
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (10, 'Rua dos Crisântemos', 'Vila Esmeralda', '65911-844', 299);
+VALUES (10, 'Rua dos Crisantemos', 'Vila Esmeralda', '65911844', 299);
 
--- INSERÇÃO DE TELEFONES
+-- INSERcaO DE TELEFONES
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (1, '(98) 98749-0245');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (1, '98987490245');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (2, '(85) 99595-3976');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (2, '85995953976');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (3, '(65) 98559-1330');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (3, '65985591330');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (4, '(86) 99330-0763');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (4, '86993300763');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (5, '(92) 99411-3160');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (5, '92994113160');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (6, '(91) 98932-0474');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (6, '91989320474');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (7, '(28) 99235-8672');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (7, '28992358672');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (8, '(82) 99253-1977');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (8, '82992531977');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (9, '(68) 98144-3365');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (9, '68981443365');
 
-INSERT INTO Telefone (idPessoa, celular)
-VALUES (10, '(84) 98490-8292');
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (10, '84984908292');
 
 COMMIT;
