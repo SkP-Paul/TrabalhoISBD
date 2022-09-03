@@ -180,8 +180,8 @@ VALUES (3, '79997366515');
 ----------------------------------------------------------------------------------------------------
 
 -- FUNCIONÁRIO
-INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('62111882267', 'Mariana Amanda Juliana Cavalcanti', 'E', 1);
+INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
+VALUES ('62111882267', '01294177148', 'Mariana Amanda Juliana Cavalcanti', 'E', 1);
 
 -- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
@@ -322,8 +322,8 @@ VALUES (13, '98989540534');
 ----------------------------------------------------------------------------------------------------
 
 -- FUNCIONÁRIO
-INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('59529529333', 'Emanuel Cesar Jose Santos', 'E', 2);
+INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
+VALUES ('59529529333', '18871158358', 'Emanuel Cesar Jose Santos', 'E', 2);
 
 -- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
@@ -465,8 +465,8 @@ VALUES (23, '83993719831');
 ----------------------------------------------------------------------------------------------------
 
 -- FUNCIONÁRIO
-INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
-VALUES ('60530592347', 'Jorge Joaquim Diogo Carvalho', 'E', 3);
+INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
+VALUES ('60530592347', '24855707935', 'Jorge Joaquim Diogo Carvalho', 'E', 3);
 
 -- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
