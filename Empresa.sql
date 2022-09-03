@@ -177,6 +177,12 @@ VALUES (3, 'Rua Mario Matiotte', 'Industrial', '49065415', 600);
 INSERT INTO Telefone (idPessoa, numero)
 VALUES (3, '79997366515');
 
+-- ATUALIZANDO O GERENTE DA FILIAL 1
+
+UPDATE Filial
+SET idGerente = 3, data_inicio_gestao = '2019-01-01'
+WHERE idFilial = 1;
+
 ----------------------------------------------------------------------------------------------------
 
 -- FUNCIONÁRIO
@@ -318,6 +324,12 @@ VALUES (13, 'Rua Duque de Caxias', 'Vilinha', '65915512', 803);
 -- TELEFONE
 INSERT INTO Telefone (idPessoa, numero)
 VALUES (13, '98989540534');
+
+-- ATUALIZANDO O GERENTE DA FILIAL 2
+
+UPDATE Filial
+SET idGerente = 13, data_inicio_gestao = '2020-01-01'
+WHERE idFilial = 2;
 
 ----------------------------------------------------------------------------------------------------
 
@@ -461,6 +473,12 @@ VALUES (23, 'Rua Y Dois', 'Distrito Industrial', '58082025', 456);
 -- TELEFONE
 INSERT INTO Telefone (idPessoa, numero)
 VALUES (23, '83993719831');
+
+-- ATUALIZANDO O GERENTE DA FILIAL 3
+
+UPDATE Filial
+SET idGerente = 23, data_inicio_gestao = '2022-03-12'
+WHERE idFilial = 3;
 
 ----------------------------------------------------------------------------------------------------
 
