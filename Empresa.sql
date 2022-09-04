@@ -646,23 +646,25 @@ VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
 
 -- ###### INSERÇÃO DE PEDIDOS ###### --
 
--- PEDIDO1
+-- ######## PEDIDO 1 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua dos Crisantemos', '77060688', 871, 'Setor Sonia Regina Taquaralto', '2021-03-12', 3, 4, 2);
 
 -- ITEMS DO PEDIDO 1
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (1, 1, 3999.00, 1);
+VALUES (1, 1, 233.00, 1);
 
--- PEDIDO 2
+
+-- ######## PEDIDO 2 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 2, 14, 12);
 
 -- ITEMS DO PEDIDO 2
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (2, 2, 3999.00, 3);
+VALUES (2, 2, 614.00, 3);
 
--- PEDIDO 3
+
+-- ######## PEDIDO 3 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
 
@@ -670,23 +672,32 @@ VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688'
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (3, 3, 500.00, 2);
 
+
+-- ######## PEDIDO 4 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
 
+-- ITEMS DO PEDIDO 4
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (4, 13, 500.00, 2);
+VALUES (4, 13, 200.00, 2);
 
+
+-- ######## PEDIDO 5 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
 
+-- ITEMS DO PEDIDO 5
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (5, 13, 500.00, 2);
+VALUES (5, 13, 190.00, 2);
 
+
+-- ######## PEDIDO 6 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
 
+-- ITEMS DO PEDIDO 6
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (6, 13, 500.00, 2);
+VALUES (6, 13, 10.50, 2);
 
 
 -- ###### PROCEDURES ###### --
@@ -702,6 +713,7 @@ DELIMITER ;
 
 SELECT * FROM Contem NATURAL JOIN Produto;
 
+-- CHAMA O PROCEDIMENTO
 CALL calcularLucroPorFilial(1, @lucro);
 
 SELECT * FROM Contem NATURAL JOIN Produto;
@@ -744,11 +756,13 @@ BEGIN
 
 END // 
 DELIMITER ; 
-SELECT * FROM Contem NATURAL JOIN Produto;
 
+SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
+
+-- CHAMA O PROCEDIMENTO
 CALL AjustarPrecoProduto();
 
-SELECT * FROM Contem NATURAL JOIN Produto;
+SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
 
 -- RETORNA O NOME DO PRODUTO MAIS VENDIDO POR FILIAL
 DELIMITER //
@@ -763,6 +777,7 @@ BEGIN
 END //
 DELIMITER ;
 
+-- CHAMA O PROCEDIMENTO
 CALL produtoMaisVendidoPorFilial(3, @nomeProduto);
 
 -- ####### TRIGGERS ####### --
@@ -780,14 +795,6 @@ BEGIN
 	WHERE Produto.idProduto = OLD.idProduto;
 END //
 DELIMITER ;
-
-SELECT estoque FROM Produto
-WHERE idProduto = 1;
-DELETE FROM Contem
-WHERE idProduto = 1 AND idPedido = 1;
-
-SELECT estoque FROM Produto
-WHERE idProduto = 1;
 
 -- VERIFICAR SE A QUANTIDADE DE TELEFONES DE UMA PESSOA EXCEDEU A 3
 
@@ -810,16 +817,8 @@ END;
 //
 DELIMITER ;
 
-INSERT INTO Telefone (idPessoa, numero)
-VALUES (29, '79887121960');
+-- VERIFICA SE O ENTREGADOR DO PEDIDO É DO TIPO 'E' AO ATUALIZAR
 
-INSERT INTO Telefone (idPessoa, numero)
-VALUES (29, '79924680314');
-
-INSERT INTO Telefone (idPessoa, numero)
-VALUES (29, '79983170934');
-
--- VERIFICA SE O ENTREGADOR DO PEDIDO É DO TIPO 'E'
 -- DROP TRIGGER verificarEntregador;
 
 DELIMITER //
@@ -833,13 +832,35 @@ BEGIN
     WHERE idPessoa = new.idEntregador;	
     
     IF (vTipoEntregador != 'E') THEN
-        SIGNAL SQLSTATE '45000' SET message_text = 'A pessoa desgnada como entregador não é do tipo Entregador.';
+        SIGNAL SQLSTATE '45000' SET message_text = 'A pessoa designada como entregador não é do tipo Entregador.';
     END IF;
 END;
 //
 DELIMITER ;
 
--- ATUALIZANDO O ENTREGADOR DO PEDIDO 1 PARA UM ENTREGADOR INVÁLIDO PARA TESTES
+
+-- ###### EXEMPLOS DE GATILHOS DOS TRIGGERS ###### --
+-- TRIGER PARA ATUALIZAR O ESTOQUE DE UM PRODUTO AO EXCLUIR UM PEDIDO
+SELECT estoque FROM Produto
+WHERE idProduto = 1;
+
+DELETE FROM Contem
+WHERE idProduto = 1 AND idPedido = 1;
+
+SELECT estoque FROM Produto
+WHERE idProduto = 1;
+
+-- TRIGER PARA VERIFICAR SE A QUANTIDADE DE TELEFONES DE UMA PESSOA EXCEDEU A 3
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79887121960');
+
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79924680314');
+
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79983170934');
+
+-- TRIGER PARA VERIFICA SE O ENTREGADOR DO PEDIDO É DO TIPO 'E' AO ATUALIZAR
 UPDATE Pedido
 SET idEntregador = 1
 WHERE idPedido = 1;
