@@ -687,19 +687,59 @@ WHERE idProduto = 1 AND idPedido = 1;
 SELECT estoque FROM Produto
 WHERE idProduto = 1;
 
--- ATUALIZAR O ESTOQUE DE UM PRODUTO AO INSERIR UM PEDIDO
+-- VERIFICAR SE A QUANTIDADE DE TELEFONES DE UMA PESSOA EXCEDEU A 3
 
-DROP TRIGGER atualizarEstoque;
+DROP TRIGGER before_insert_Telefone;
 
 DELIMITER //
-CREATE TRIGGER atualizarEstoque
-AFTER UPDATE ON Contem
+CREATE TRIGGER before_insert_Telefone
+BEFORE INSERT ON Telefone FOR EACH ROW
+BEGIN
+   DECLARE vNumTel INT;
+
+   SELECT COUNT(idPessoa) INTO vNumTel
+   FROM Telefone
+   WHERE idPessoa = new.idPessoa;	
+	
+   IF (vNumTel = 4) THEN
+      SIGNAL SQLSTATE '45000' SET message_text = 'Funcionário excede o número máximo de telefones.';
+   END IF;
+END;
+//
+DELIMITER ;
+
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79887121960');
+
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79924680314');
+
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (29, '79983170934');
+
+-- VERIFICAR SE O TIPO DA PESSOA NA EDIÇÃO É IGUAL A: A, C, G, O ou E
+
+DROP TRIGGER after_Pessoa_update;
+
+DELIMITER //
+CREATE TRIGGER after_Pessoa_update
+AFTER UPDATE ON Pessoa
 FOR EACH ROW
 BEGIN
-	UPDATE Produto
-	SET estoque = estoque + OLD.quantidade_produto - NEW.quantidade_produto
-	WHERE Produto.idProduto = OLD.idProduto;
-END //
+  IF OLD.tipo != NEW.tipo THEN
+    IF (new.tipo NOT IN ('A','C', 'G', 'E', 'O')) THEN
+      SIGNAL SQLSTATE '45000' SET message_text = 'Caracter invalido para o atributo tipo, informe A, C, G, O ou E.';
+  END IF;
+END;
+//
 DELIMITER ;
+
+UPDATE Pessoa
+SET tipo = 'A'
+WHERE idPessoa = 1;
+
+UPDATE Pessoa
+SET tipo = 'X'
+WHERE idPessoa = 1;
 
 COMMIT;
