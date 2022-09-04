@@ -646,22 +646,124 @@ VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
 
 -- ###### INSERÇÃO DE PEDIDOS ###### --
 
+-- PEDIDO1
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua dos Crisantemos', '77060688', 871, 'Setor Sonia Regina Taquaralto', '2021-03-12', 3, 4, 2);
 
+-- ITEMS DO PEDIDO 1
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (1, 1, 3999.00, 1);
 
-
+-- PEDIDO 2
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 2, 14, 12);
 
+-- ITEMS DO PEDIDO 2
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (2, 2, 3999.00, 3);
+
+-- PEDIDO 3
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
+
+-- ITEMS DO PEDIDO 3
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (3, 3, 500.00, 2);
 
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
 VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
 
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (4, 13, 500.00, 2);
+
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (5, 13, 500.00, 2);
+
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (6, 13, 500.00, 2);
+
+
+-- ###### PROCEDURES ###### --
+-- CALCULA O LUCRO DA FILIAL INFORMADA POR PARAMETRO
+DELIMITER //
+CREATE PROCEDURE calcularLucroPorFilial(IN idFilial INT, OUT lucro FLOAT)
+BEGIN
+    SELECT ROUND(SUM(preco_venda/quantidade_produto - preco), 2) AS lucro 
+    FROM Contem NATURAL JOIN Produto
+    WHERE produto.idFilial = idFilial;
+END //
+DELIMITER ;
+
+SELECT * FROM Contem NATURAL JOIN Produto;
+
+CALL calcularLucroPorFilial(1, @lucro);
+
+SELECT * FROM Contem NATURAL JOIN Produto;
+
+-- AJUSTA O PREÇO DO PRODUTO COM A MÉDIA DO PREÇO DE VENDA COM UMA MARGEM DE LUCRO DE 5% OU DE PREJUIZO DE 5%
+
+DELIMITER // 
+CREATE PROCEDURE AjustarPrecoProduto()
+BEGIN
+    DECLARE done INT DEFAULT FALSE;
+
+    DECLARE vIdProduto INT;
+    DECLARE vMediaPreco decimal(6,1);
+    DECLARE vPrecoAtual decimal(6,1);
+
+    DECLARE mediaDePreco CURSOR FOR 	
+        SELECT idProduto, AVG(preco_venda/quantidade_produto) AS media, preco
+        FROM Contem NATURAL JOIN Produto
+        GROUP BY idProduto;
+
+    DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+    OPEN mediaDePreco;
+
+    read_loop: LOOP
+        FETCH mediaDePreco INTO vIdProduto, vMediaPreco, vPrecoAtual;
+        
+        IF done THEN
+        LEAVE read_loop;
+        END IF;
+        
+        IF vMediaPreco >= vPrecoAtual * 1.005 THEN
+            UPDATE Produto SET preco = preco * 1.005 where idProduto = vIdProduto;
+        ELSEIF vMediaPreco < vPrecoAtual * 0.9 THEN
+            UPDATE Produto set preco = preco * 0.95 where idProduto = vIdProduto;
+        END IF;
+    END LOOP;
+
+    CLOSE mediaDePreco;
+
+END // 
+DELIMITER ; 
+SELECT * FROM Contem NATURAL JOIN Produto;
+
+CALL AjustarPrecoProduto();
+
+SELECT * FROM Contem NATURAL JOIN Produto;
+
+-- RETORNA O NOME DO PRODUTO MAIS VENDIDO POR FILIAL
+DELIMITER //
+CREATE PROCEDURE produtoMaisVendidoPorFilial(IN idFilial INT, OUT nomeProduto VARCHAR(100))
+BEGIN
+    SELECT titulo
+    FROM Contem NATURAL JOIN Produto
+    WHERE produto.idFilial = idFilial
+    GROUP BY titulo
+    ORDER BY SUM(quantidade_produto) DESC
+    LIMIT 1;
+END //
+DELIMITER ;
+
+CALL produtoMaisVendidoPorFilial(3, @nomeProduto);
 
 -- ####### TRIGGERS ####### --
 
@@ -736,6 +838,7 @@ BEGIN
 END;
 //
 DELIMITER ;
+
 -- ATUALIZANDO O ENTREGADOR DO PEDIDO 1 PARA UM ENTREGADOR INVÁLIDO PARA TESTES
 UPDATE Pedido
 SET idEntregador = 1
