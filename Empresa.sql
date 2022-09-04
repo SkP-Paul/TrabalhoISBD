@@ -115,7 +115,7 @@ ADD CONSTRAINT fk_prod_filial FOREIGN KEY (idFilial)
 
 ALTER TABLE Contem
 ADD CONSTRAINT fk_con_pedido FOREIGN KEY (idPedido)
-		REFERENCES	Pedido (idFilial)
+		REFERENCES	Pedido (idPedido)
         ON DELETE CASCADE,
 ADD CONSTRAINT fk_con_produto FOREIGN KEY (idProduto)
 		REFERENCES Produto (idProduto)
@@ -579,5 +579,127 @@ INSERT INTO Telefone (idPessoa, numero)
 VALUES (30, '97992874058');
 
 ----------------------------------------------------------------------------------------------------
+
+-- ###### INSERÇÃO DE PRODUTOS ###### --
+
+-- ###### FILAIL 1 ###### --
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Flamengo Masculina 2020/2021', 10, 199.90, 'Camisa Flamengo Masculina 2020/2021', 1);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Corinthians Masculina 2020/2021', 10, 199.90, 'Camisa Corinthians Masculina 2020/2021', 1);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Palmeiras Masculina 2020/2021', 10, 199.90, 'Camisa Palmeiras Masculina 2020/2021', 1);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Santos Masculina 2020/2021', 10, 199.90, 'Camisa Santos Masculina 2020/2021', 1);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Bermuda Nike Masculina', 10, 99.90, 'Bermuda Nike Masculina', 1);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Preta Manga Curta', 10, 49.90, 'Camisa Preta Manga Curta', 1);
+
+
+-- ###### FILAIL 2 ###### --
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Polo Masculina', 10, 99.90, 'Camisa Polo Masculina', 2);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Polo Feminina', 10, 99.90, 'Camisa Polo Feminina', 2);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Polo Infantil', 10, 99.90, 'Camisa Polo Infantil', 2);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Croped Masculina', 10, 99.90, 'Croped Masculina', 2);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Calça Jeans Masculina', 10, 99.90, 'Calça Jeans Masculina', 2);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Calça Jeans Feminina', 10, 99.90, 'Calça Jeans Feminina', 2);
+
+-- ###### FILAIL 3 ###### --
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Nike Masculina', 10, 99.90, 'Camisa Nike Masculina', 3);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Nike Feminina', 10, 99.90, 'Camisa Nike Feminina', 3);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Nike Infantil', 10, 99.90, 'Camisa Nike Infantil', 3);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Adidas Masculina', 10, 99.90, 'Camisa Adidas Masculina', 3);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Adidas Feminina', 10, 99.90, 'Camisa Adidas Feminina', 3);
+
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
+
+
+-- ###### INSERÇÃO DE PEDIDOS ###### --
+
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua dos Crisantemos', '77060688', 871, 'Setor Sonia Regina Taquaralto', '2021-03-12', 3, 4, 2);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (1, 1, 3999.00, 1);
+
+
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 2, 14, 12);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (2, 2, 3999.00, 3);
+
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688', 855, 'Ceilandia', '2021-03-12', 3, 24, 22);
+
+
+-- ####### TRIGGERS ####### --
+
+-- ATUALIZAR O ESTOQUE DE UM PRODUTO AO EXCLUIR UM PEDIDO
+DROP TRIGGER atualizarEstoque;
+
+DELIMITER //
+CREATE TRIGGER atualizarEstoque
+AFTER DELETE ON Contem
+FOR EACH ROW
+BEGIN
+	UPDATE Produto
+	SET estoque = estoque + OLD.quantidade_produto
+	WHERE Produto.idProduto = OLD.idProduto;
+END //
+DELIMITER ;
+
+SELECT estoque FROM Produto
+WHERE idProduto = 1;
+DELETE FROM Contem
+WHERE idProduto = 1 AND idPedido = 1;
+
+SELECT estoque FROM Produto
+WHERE idProduto = 1;
+
+-- ATUALIZAR O ESTOQUE DE UM PRODUTO AO INSERIR UM PEDIDO
+
+DROP TRIGGER atualizarEstoque;
+
+DELIMITER //
+CREATE TRIGGER atualizarEstoque
+AFTER UPDATE ON Contem
+FOR EACH ROW
+BEGIN
+	UPDATE Produto
+	SET estoque = estoque + OLD.quantidade_produto - NEW.quantidade_produto
+	WHERE Produto.idProduto = OLD.idProduto;
+END //
+DELIMITER ;
 
 COMMIT;
