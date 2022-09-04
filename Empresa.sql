@@ -666,7 +666,7 @@ VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688'
 -- ####### TRIGGERS ####### --
 
 -- ATUALIZAR O ESTOQUE DE UM PRODUTO AO EXCLUIR UM PEDIDO
-DROP TRIGGER atualizarEstoque;
+-- DROP TRIGGER atualizarEstoque;
 
 DELIMITER //
 CREATE TRIGGER atualizarEstoque
@@ -689,21 +689,21 @@ WHERE idProduto = 1;
 
 -- VERIFICAR SE A QUANTIDADE DE TELEFONES DE UMA PESSOA EXCEDEU A 3
 
-DROP TRIGGER before_insert_Telefone;
+-- DROP TRIGGER before_insert_Telefone;
 
 DELIMITER //
 CREATE TRIGGER before_insert_Telefone
 BEFORE INSERT ON Telefone FOR EACH ROW
 BEGIN
-   DECLARE vNumTel INT;
+    DECLARE vNumTel INT;
 
-   SELECT COUNT(idPessoa) INTO vNumTel
-   FROM Telefone
-   WHERE idPessoa = new.idPessoa;	
+    SELECT COUNT(idPessoa) INTO vNumTel
+    FROM Telefone
+    WHERE idPessoa = new.idPessoa;	
 	
-   IF (vNumTel = 4) THEN
-      SIGNAL SQLSTATE '45000' SET message_text = 'Funcionário excede o número máximo de telefones.';
-   END IF;
+    IF (vNumTel = 3) THEN
+        SIGNAL SQLSTATE '45000' SET message_text = 'Funcionário excede o número máximo de telefones.';
+    END IF;
 END;
 //
 DELIMITER ;
@@ -717,29 +717,28 @@ VALUES (29, '79924680314');
 INSERT INTO Telefone (idPessoa, numero)
 VALUES (29, '79983170934');
 
--- VERIFICAR SE O TIPO DA PESSOA NA EDIÇÃO É IGUAL A: A, C, G, O ou E
-
-DROP TRIGGER after_Pessoa_update;
+-- VERIFICA SE O ENTREGADOR DO PEDIDO É DO TIPO 'E'
+-- DROP TRIGGER verificarEntregador;
 
 DELIMITER //
-CREATE TRIGGER after_Pessoa_update
-AFTER UPDATE ON Pessoa
-FOR EACH ROW
+CREATE TRIGGER verificarEntregador
+BEFORE UPDATE ON Pedido FOR EACH ROW
 BEGIN
-  IF OLD.tipo != NEW.tipo THEN
-    IF (new.tipo NOT IN ('A','C', 'G', 'E', 'O')) THEN
-      SIGNAL SQLSTATE '45000' SET message_text = 'Caracter invalido para o atributo tipo, informe A, C, G, O ou E.';
-  END IF;
+    DECLARE vTipoEntregador VARCHAR(1);
+
+    SELECT tipo INTO vTipoEntregador
+    FROM Pessoa
+    WHERE idPessoa = new.idEntregador;	
+    
+    IF (vTipoEntregador != 'E') THEN
+        SIGNAL SQLSTATE '45000' SET message_text = 'A pessoa desgnada como entregador não é do tipo Entregador.';
+    END IF;
 END;
 //
 DELIMITER ;
-
-UPDATE Pessoa
-SET tipo = 'A'
-WHERE idPessoa = 1;
-
-UPDATE Pessoa
-SET tipo = 'X'
-WHERE idPessoa = 1;
+-- ATUALIZANDO O ENTREGADOR DO PEDIDO 1 PARA UM ENTREGADOR INVÁLIDO PARA TESTES
+UPDATE Pedido
+SET idEntregador = 1
+WHERE idPedido = 1;
 
 COMMIT;
