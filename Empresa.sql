@@ -865,4 +865,14 @@ UPDATE Pedido
 SET idEntregador = 1
 WHERE idPedido = 1;
 
+-- ####### CRIAÇÃO DE USUARIOS #######
+CREATE USER 'gerente'@'localhost' IDENTIFIED BY '0000';
+CREATE USER 'funcionario'@'localhost' IDENTIFIED BY '1111';
+
+GRANT ALL ON Empresa TO 'gerente'@'localhost';
+GRANT INSERT, DROP, SELECT ON Empresa.Pedido TO 'funcionario'@'localhost';
+
+REVOKE ALL ON Empresa FROM 'gerente'@'localhost';
+REVOKE ALL ON Empresa.Pedido FROM 'funcionario'@'localhost';
+
 COMMIT;
