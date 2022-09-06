@@ -602,6 +602,8 @@ VALUES ('Bermuda Nike Masculina', 10, 99.90, 'Bermuda Nike Masculina', 1);
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Camisa Preta Manga Curta', 10, 49.90, 'Camisa Preta Manga Curta', 1);
 
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa do Acesso', 10, 299.90, 'Camisa Cruzeiro Masculina 2022/2023', 1);
 
 -- ###### FILAIL 2 ###### --
 
@@ -617,7 +619,7 @@ VALUES ('Camisa Polo Infantil', 10, 99.90, 'Camisa Polo Infantil', 2);
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Croped Masculina', 10, 99.90, 'Croped Masculina', 2);
 
-INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)6517-FB9D
 VALUES ('Calça Jeans Masculina', 10, 99.90, 'Calça Jeans Masculina', 2);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
@@ -626,19 +628,19 @@ VALUES ('Calça Jeans Feminina', 10, 99.90, 'Calça Jeans Feminina', 2);
 -- ###### FILAIL 3 ###### --
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Masculina', 10, 99.90, 'Camisa Nike Masculina', 3);
+VALUES ('Camisa Nike Masculina', 10, 129.90, 'Camisa Nike Masculina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Feminina', 10, 99.90, 'Camisa Nike Feminina', 3);
+VALUES ('Camisa Nike Feminina', 10, 110.90, 'Camisa Nike Feminina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Infantil', 10, 99.90, 'Camisa Nike Infantil', 3);
+VALUES ('Camisa Nike Infantil', 10, 80.96, 'Camisa Nike Infantil', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Adidas Masculina', 10, 99.90, 'Camisa Adidas Masculina', 3);
+VALUES ('Camisa Adidas Masculina', 10, 149.70, 'Camisa Adidas Masculina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Adidas Feminina', 10, 99.90, 'Camisa Adidas Feminina', 3);
+VALUES ('Camisa Adidas Feminina', 10, 139.90, 'Camisa Adidas Feminina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
