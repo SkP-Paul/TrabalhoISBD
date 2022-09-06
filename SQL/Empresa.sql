@@ -133,9 +133,9 @@ VALUES ('25408265000154', '07243270', 'Yuri e Paulo Telecomunicacoes ME', 656, '
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
 VALUES ('47581605000187', '01128080', 'Rayssa e Igor Comercio de Bebidas ME', 513, 'Bom Retiro', 'Rua Adoracao');
 
--- INSERÇÃO DOS FUNCIONÁRIOS
+-- ###### INSERÇÃO DOS FUNCIONÁRIOS ###### --
 
--- FILIAL 1
+-- ###### FILIAL 1 ###### --
 
 -- FUNCIONÁRIO
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
@@ -283,7 +283,7 @@ VALUES (10, '79987594285');
 
 ----------------------------------------------------------------------------------------------------
 
--- FILIAL 2
+-- ###### FILIAL 2 ###### --
 
 -- FUNCIONÁRIO
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
@@ -432,7 +432,7 @@ VALUES (20, '54999774554');
 ----------------------------------------------------------------------------------------------------
 
 
--- FILIAL 3
+-- ###### FILIAL 3 ###### --
 
 -- FUNCIONÁRIO
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
@@ -602,6 +602,8 @@ VALUES ('Bermuda Nike Masculina', 10, 99.90, 'Bermuda Nike Masculina', 1);
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Camisa Preta Manga Curta', 10, 49.90, 'Camisa Preta Manga Curta', 1);
 
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Camisa do Acesso', 10, 299.90, 'Camisa Cruzeiro Masculina 2022/2023', 1);
 
 -- ###### FILAIL 2 ###### --
 
@@ -617,7 +619,7 @@ VALUES ('Camisa Polo Infantil', 10, 99.90, 'Camisa Polo Infantil', 2);
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Croped Masculina', 10, 99.90, 'Croped Masculina', 2);
 
-INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)6517-FB9D
 VALUES ('Calça Jeans Masculina', 10, 99.90, 'Calça Jeans Masculina', 2);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
@@ -626,19 +628,19 @@ VALUES ('Calça Jeans Feminina', 10, 99.90, 'Calça Jeans Feminina', 2);
 -- ###### FILAIL 3 ###### --
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Masculina', 10, 99.90, 'Camisa Nike Masculina', 3);
+VALUES ('Camisa Nike Masculina', 10, 129.90, 'Camisa Nike Masculina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Feminina', 10, 99.90, 'Camisa Nike Feminina', 3);
+VALUES ('Camisa Nike Feminina', 10, 110.90, 'Camisa Nike Feminina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Nike Infantil', 10, 99.90, 'Camisa Nike Infantil', 3);
+VALUES ('Camisa Nike Infantil', 10, 80.96, 'Camisa Nike Infantil', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Adidas Masculina', 10, 99.90, 'Camisa Adidas Masculina', 3);
+VALUES ('Camisa Adidas Masculina', 10, 149.70, 'Camisa Adidas Masculina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Camisa Adidas Feminina', 10, 99.90, 'Camisa Adidas Feminina', 3);
+VALUES ('Camisa Adidas Feminina', 10, 139.90, 'Camisa Adidas Feminina', 3);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
@@ -699,6 +701,38 @@ VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688'
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (6, 13, 10.50, 2);
 
+
+-- ######## PEDIDO 7 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Marcelo Pasquali Carlo Pirfo', '38082162', 957, 'Conjunto Manoel Mendes', '2021-03-12', 3, 4, 2);
+
+-- ITEMS DO PEDIDO 7 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (7, 1, 274.00, 1);
+
+-- ######## PEDIDO 8 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Mario Matiotte', '49065415', 600, 'Industrial', '2021-03-12', 3, 4, 3);
+
+-- ITEMS DO PEDIDO 8 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (8, 1, 233.00, 1);
+
+-- ######## PEDIDO 9 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Taquarussu', '77080066', 955, 'Rua 15 A', '2021-03-12', 3, 4, 4);
+
+-- ITEMS DO PEDIDO 9 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (9, 4, 254.00, 1);
+
+-- ######## PEDIDO 10 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 3, 4, 5);
+
+-- ITEMS DO PEDIDO 10 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (10, 4, 254.00, 4);
 
 -- ###### PROCEDURES ###### --
 -- CALCULA O LUCRO DA FILIAL INFORMADA POR PARAMETRO
