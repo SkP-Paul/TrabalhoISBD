@@ -886,13 +886,23 @@ SELECT
     Contem.idProduto,
     titulo AS nome_produto,
     SUM(quantidade_produto) AS quantidade_vendida,
-    ROUND(preco, 2) AS valor_original,
-    ROUND(SUM(preco_venda/quantidade_produto - preco), 2) AS lucro_por_peca,
-    ROUND(SUM(preco_venda/quantidade_produto - preco) * SUM(quantidade_produto), 2) AS lucro_total
+    ROUND(preco, 2) AS preco_original,
+    ROUND(SUM(preco_venda / quantidade_produto), 2) AS preco_vendido,
+    ROUND(SUM(preco_venda / quantidade_produto - preco), 2) AS lucro_por_peca,
+    ROUND(SUM(preco_venda / quantidade_produto - preco) * SUM(quantidade_produto), 2) AS lucro_total
 FROM Pedido 
     NATURAL JOIN Contem
     JOIN Produto ON Produto.idProduto = Contem.idProduto
 GROUP BY Contem.idProduto;
+
+-- SELECIONANDO OS DADOS DA VISÃO VENDAS POR PRODUTO --
+SELECT * FROM Vendas;
+
+-- SELECIONANDO OS DADOS DA VISÃO VENDAS DOS PRODUTOS DA FILIAL 1 --
+SELECT * FROM Vendas WHERE idFilial = 1;
+
+-- SELECIONANDO OS DADOOS DA VISÃO VENDAS DOS PRODUTOS QUE FORAM VENDIDAS MAIS DE 10 UNIDADES --
+SELECT * FROM Vendas WHERE quantidade_vendida > 10;
 
 -- LETRA I
 /*
