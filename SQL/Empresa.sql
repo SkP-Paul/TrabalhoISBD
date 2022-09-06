@@ -810,14 +810,17 @@ BEGIN
 END //
 DELIMITER ;
 
-SELECT * FROM Contem NATURAL JOIN Produto;
-
 -- CHAMA O PROCEDIMENTO
 CALL calcularLucroPorFilial(1, @lucro);
 
+-- SELECIONA A TABELA CONTÉM PARA VALIDAÇÃO DO RESULTADO
 SELECT * FROM Contem NATURAL JOIN Produto;
 
--- AJUSTA O PREÇO DO PRODUTO COM A MÉDIA DO PREÇO DE VENDA COM UMA MARGEM DE LUCRO DE 5% OU DE PREJUIZO DE 5%
+/*
+Foi criado um procedimento que ajusta o preço do produto de acordo com o seu preço médio de venda,
+caso o preço média de venda for maior ou igual a 105% do preço do produto, o preço do produto sobe em 5%.
+Caso o preço médio de venda for menor que 90% do preço do produto, o preço do produto cai em 5%.
+*/
 
 DELIMITER // 
 CREATE PROCEDURE AjustarPrecoProduto()
@@ -856,14 +859,20 @@ BEGIN
 END // 
 DELIMITER ; 
 
+-- SELECIONA A TABELA CONTÉM, PARA VERIFICAÇÃO DO SEU ESTADO ANTES DA EXECUÇÃO DO PROCEDIMENTO
 SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
 
 -- CHAMA O PROCEDIMENTO
 CALL AjustarPrecoProduto();
 
+-- SELECIONA A TABELA CONTÉM, PARA VERIFICAÇÃO DO SEU ESTADO DEPOIS DA EXECUÇÃO DO PROCEDIMENTO
 SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
 
--- RETORNA O NOME DO PRODUTO MAIS VENDIDO POR FILIAL
+
+/*
+Foi criado um procedimento que recebi como parâmetro o id da Filial e retorna o nome do produto
+mais vendido na filial.
+*/
 DELIMITER //
 CREATE PROCEDURE produtoMaisVendidoPorFilial(IN idFilial INT, OUT nomeProduto VARCHAR(100))
 BEGIN
@@ -878,6 +887,9 @@ DELIMITER ;
 
 -- CHAMA O PROCEDIMENTO
 CALL produtoMaisVendidoPorFilial(3, @nomeProduto);
+
+-- SELECIONA A TABELA CONTÉM PARA VALIDAÇÃO DO RESULTADO
+SELECT * FROM Contem NATURAL JOIN Produto GROUP BY titulo;
 
 -- ####### TRIGGERS ####### --
 
