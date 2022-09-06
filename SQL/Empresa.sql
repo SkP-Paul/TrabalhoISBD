@@ -790,8 +790,17 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (10, 4, 254.00, 4);
 
--- ###### PROCEDURES ###### --
--- CALCULA O LUCRO DA FILIAL INFORMADA POR PARAMETRO
+-- LETRA I
+/*
+(i) Exemplos de 3 procedimentos/funções, com e sem parâmetros, de entrada e de saída,
+contendo alguns comandos tais como IF, CASE WHEN, WHILE, declaração de
+variáveis e funções prontas. Inclua exemplos de como executar esses procedimentos/
+funções (valor: 10%);
+*/
+
+/*
+Foi criado um procedimento que recebe como parâmero o id da filial e retorna o lucro da filail, com no máximo 2 casas decimais.
+*/
 DELIMITER //
 CREATE PROCEDURE calcularLucroPorFilial(IN idFilial INT, OUT lucro FLOAT)
 BEGIN
