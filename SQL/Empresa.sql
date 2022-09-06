@@ -125,14 +125,14 @@ ADD CONSTRAINT fk_con_produto FOREIGN KEY (idProduto)
 
 -- LETRA B
 /*
-(b) Exemplos de ALTER TABLE (pelo menos 3 exemplos, envolvendo alterações
+(b) Exemplos de ALTER TABLE (pelo menos 3 exemplos, envolvendo alteracões
 diversas) e DROP TABLE. Crie uma tabela extra que não existe no seu trabalho,
 somente para exemplificar, e a apague no final com o DROP TABLE (valor: 2,5%);
 */
 
 /*
-Uma tabela extra chamada "Usuario" foi criada para exemplificação.
-Inicialmente, ela contém sete atributos: idUsuario, nome, sobrenome, email, senha, idade e dataNasc. Abaixo há o código de criação dela.
+Uma tabela extra chamada "Usuario" foi criada para exemplificacão.
+Inicialmente, ela contém sete atributos: idUsuario, nome, sobrenome, email, senha, idade e dataNasc. Abaixo há o código de criacão dela.
 */
 
 CREATE TABLE Usuario (
@@ -148,9 +148,9 @@ CONSTRAINT pk_usuario PRIMARY KEY (idUsuario)
 
 /*
 Vamos supor que há dois tipos de usuários, um administrador, com privilégios totais a um sistema, e um usuário comum, que possui
-algumas restrições de funcionalidades. Para fazer essa diferenciação, podemos criar uma nova coluna do tipo CHAR de um caractere,
+algumas restricões de funcionalidades. Para fazer essa diferenciacão, podemos criar uma nova coluna do tipo CHAR de um caractere,
 chamada "tipo", que aceita somente dois valores: "A" para administrador e "C" para comum. Além disso, como a maioria dos novos usuários
-são do tipo comum, vamos definir um padrão para que toda inserção, caso não especificarmos, seja do tipo "C". O código abaixo faz isso que
+são do tipo comum, vamos definir um padrão para que toda insercão, caso não especificarmos, seja do tipo "C". O código abaixo faz isso que
 foi descrito.
 */
 ALTER TABLE Usuario
@@ -158,7 +158,7 @@ ADD COLUMN tipo CHAR(1) DEFAULT 'C';
 
 /*
 Agora, já temos a coluna "tipo", mas nada impede de um registro com um caractere diferente de "A" e "C" seja inserido.
-Então seria interessante adicionarmos uma nova restrição na nossa tabela, que limita os valores do atributo em somente "A" ou "C"
+Então seria interessante adicionarmos uma nova restricão na nossa tabela, que limita os valores do atributo em somente "A" ou "C"
 */
 ALTER TABLE Usuario
 ADD CONSTRAINT ck_tipo CHECK (tipo='A' OR tipo='C');
@@ -178,7 +178,7 @@ Por fim, vamos apagar essa nossa tabela extra. Podemos fazer isso utilizando o c
 
 DROP TABLE Usuario;
 
--- INSERÇÃO DAS FILIAIS
+-- INSERcÃO DAS FILIAIS
 
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
 VALUES ('64045511000102', '35352971', 'Diego e Samuel Construcoes ME', 659, 'Jardim Record', 'Rua Ipaucu');
@@ -189,7 +189,7 @@ VALUES ('25408265000154', '07243270', 'Yuri e Paulo Telecomunicacoes ME', 656, '
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
 VALUES ('47581605000187', '01128080', 'Rayssa e Igor Comercio de Bebidas ME', 513, 'Bom Retiro', 'Rua Adoracao');
 
--- ###### INSERÇÃO DOS FUNCIONÁRIOS ###### --
+-- ###### INSERcÃO DOS FUNCIONÁRIOS ###### --
 
 -- ###### FILIAL 1 ###### --
 
@@ -197,7 +197,7 @@ VALUES ('47581605000187', '01128080', 'Rayssa e Igor Comercio de Bebidas ME', 51
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('59145566518', 'Thomas Ian Monteiro', 'A', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (1, 'Rua Governador Raimundo Artur de Vasconcelos', 'Marques de Paranagua', '64002508', 450);
 
@@ -211,7 +211,7 @@ VALUES (1, '86997285749');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('51468368419', 'Andreia Mariah Lopes', 'C', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (2, 'Rua Marcelo Pasquali Carlo Pirfo', 'Conjunto Manoel Mendes', '38082162', 957);
 
@@ -225,7 +225,7 @@ VALUES (2, '34998239025');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('20763488593', 'Jennifer Milena Drumond', 'G', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (3, 'Rua Mario Matiotte', 'Industrial', '49065415', 600);
 
@@ -245,7 +245,7 @@ WHERE idFilial = 1;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('62111882267', '01294177148', 'Mariana Amanda Juliana Cavalcanti', 'E', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (4, 'Rua 15 A', 'Taquarussu', '77080066', 955);
 
@@ -259,7 +259,7 @@ VALUES (4, '63988536630');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('51072135108', 'Emanuelly Sophie Mendes', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (5, 'Rua Professora Vaneida Soares Bezerra', 'Cidade Universitaria', '63048120', 430);
 
@@ -273,7 +273,7 @@ VALUES (5, '88981490510');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68903979672', 'Sebastiao Felipe dos Santos', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (6, 'Rua Cecilia Meireles', 'Tiradentes', '69103224', 423);
 
@@ -287,7 +287,7 @@ VALUES (6, '92999399937');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('95447891892', 'Catarina Alicia Barbara Viana', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (7, 'Rua Nova Corrente', 'Arruda', '52120311', 562);
 
@@ -301,7 +301,7 @@ VALUES (7, '81996166447');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68125510311', 'Maya Isabel Tatiane da Rosa', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (8, 'Avenida das Acacias', 'Residencial Parque das Acacias', '77425650', 789);
 
@@ -315,7 +315,7 @@ VALUES (8, '63981710164');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('04396033230', 'Marcos Caleb Rodrigues', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (9, 'Rua Maria Povoa Braga', 'Vivendas do Parque', '79044070', 909);
 
@@ -329,7 +329,7 @@ VALUES (9, '67993663927');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('38212366391', 'Raimunda Elisa Lorena da Cunha', 'O', 1);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (10, 'Travessa Santa Lucia', 'Lamarao', '49088300', 548);
 
@@ -345,7 +345,7 @@ VALUES (10, '79987594285');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('09562249034', 'Nair Josefa Martins', 'A', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (11, 'Travessa Mariz e Barros', 'Pedreira', '66080008', 783);
 
@@ -359,7 +359,7 @@ VALUES (11, '91998835462');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('52244826317', 'Regina Alessandra Baptista', 'C', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (12, 'Rua Veu de Noiva', 'Parque Sonhos Dourados', '77818814', 291);
 
@@ -373,7 +373,7 @@ VALUES (12, '63996648608');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68947505803', 'Manoel Breno Ruan da Mota', 'G', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (13, 'Rua Duque de Caxias', 'Vilinha', '65915512', 803);
 
@@ -393,7 +393,7 @@ WHERE idFilial = 2;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('59529529333', '18871158358', 'Emanuel Cesar Jose Santos', 'E', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (14, 'Quadra QNN 27 Modulo A', 'Ceilandia Norte Ceilandia', '72225271', 563);
 
@@ -407,7 +407,7 @@ VALUES (14, '61981508532');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('52984760743', 'Mario Henrique Arthur Porto', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (15, 'Rua Sao Sebastiao', 'Gilberto Mestrinho', '69086711', 177);
 
@@ -421,7 +421,7 @@ VALUES (15, '92998810721');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('46806387616', 'Eliane Natalia Moura', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (16, 'Rua F', 'Atalaia', '49038029', 337);
 
@@ -435,7 +435,7 @@ VALUES (16, '79982765342');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('58965060150', 'Elza Sophie Teresinha Farias', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (17, 'Quadra QR 503 Conjunto 13', 'Samambaia Sul Samambaia', '72311615', 398);
 
@@ -449,7 +449,7 @@ VALUES (17, '61988153819');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('08615545316', 'Erick Kaue Emanuel Ferreira', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (18, 'Rua Cataratas', 'Parque Poti', '64081380', 171);
 
@@ -463,7 +463,7 @@ VALUES (18, '86988735315');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('94573811907', 'Luzia Tania da Costa', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (19, 'Rua Fernando Correa da Costa', 'Setor Rodoviaria', '78750799', 851);
 
@@ -477,7 +477,7 @@ VALUES (19, '66987817280');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('06126894413', 'Thiago Kaique Fogaca', 'O', 2);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (20, 'Rua Marcelina Piccoli Zanrosso', 'Cruzeiro', '95074309', 503);
 
@@ -494,7 +494,7 @@ VALUES (20, '54999774554');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('73043687809', 'Tatiane Valentina Barbosa', 'A', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (21, 'Alameda Cinquenta e Nove', 'Tapana Icoaraci', '66831059', 566);
 
@@ -508,7 +508,7 @@ VALUES (21, '91998036905');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('13199238289', 'Kaue Thomas Aragao', 'C', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (22, 'Alameda Barbados', 'Ponta Negra', '69037091', 945);
 
@@ -522,7 +522,7 @@ VALUES (22, '92982444775');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('27737832122', 'Luana Raimunda Isis Porto', 'G', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (23, 'Rua Y Dois', 'Distrito Industrial', '58082025', 456);
 
@@ -542,7 +542,7 @@ WHERE idFilial = 3;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('60530592347', '24855707935', 'Jorge Joaquim Diogo Carvalho', 'E', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (24, 'Rua Chico Mendes', 'Mathias Velho', '92330085', 797);
 
@@ -556,7 +556,7 @@ VALUES (24, '51993759129');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('45164223791', 'Adriana Marcela da Luz', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (25, 'Rua Paes Leme', 'Itangua', '29149790', 298);
 
@@ -570,7 +570,7 @@ VALUES (25, '27992097631');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('05402755060', 'Enrico Claudio Teixeira', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (26, 'Rua Alemanha', 'Parque Bonfim', '87507375', 886);
 
@@ -584,7 +584,7 @@ VALUES (26, '44994596193');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('94882624869', 'Elza Simone Gomes', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (27, 'Rua 25 de Agosto', 'Eduardo Braga I', '69103444', 442);
 
@@ -598,7 +598,7 @@ VALUES (27, '92999473350');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('87618577501', 'Sergio Pietro Figueiredo', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (28, 'Rua dos Crisantemos', 'Setor Sonia Regina Taquaralto', '77060688', 871);
 
@@ -612,7 +612,7 @@ VALUES (28, '63992778153');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('90320321606', 'Cristiane Caroline Malu Pinto', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (29, 'Travessa Rosina Matos', 'Aeroporto', '49037653', 211);
 
@@ -626,7 +626,7 @@ VALUES (29, '79986996088');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('10719031877', 'Bianca Alessandra Maite Ferreira', 'O', 3);
 
--- ENDEREÇO
+-- ENDEREcO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (30, 'Estrada do Aeroporto', 'Sao Jose', '69552610', 615);
 
@@ -636,7 +636,7 @@ VALUES (30, '97992874058');
 
 ----------------------------------------------------------------------------------------------------
 
--- ###### INSERÇÃO DE PRODUTOS ###### --
+-- ###### INSERcÃO DE PRODUTOS ###### --
 
 -- ###### FILAIL 1 ###### --
 
@@ -675,11 +675,11 @@ VALUES ('Camisa Polo Infantil', 10, 99.90, 'Camisa Polo Infantil', 2);
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Croped Masculina', 10, 99.90, 'Croped Masculina', 2);
 
-INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)6517-FB9D
-VALUES ('Calça Jeans Masculina', 10, 99.90, 'Calça Jeans Masculina', 2);
+INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
+VALUES ('Calca Jeans Masculina', 10, 99.90, 'Calca Jeans Masculina', 2);
 
 INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
-VALUES ('Calça Jeans Feminina', 10, 99.90, 'Calça Jeans Feminina', 2);
+VALUES ('Calca Jeans Feminina', 10, 99.90, 'Calca Jeans Feminina', 2);
 
 -- ###### FILAIL 3 ###### --
 
@@ -702,7 +702,7 @@ INSERT INTO Produto (descricao, estoque, preco, titulo, idFilial)
 VALUES ('Camisa Adidas Infantil', 10, 99.90, 'Camisa Adidas Infantil', 3);
 
 
--- ###### INSERÇÃO DE PEDIDOS ###### --
+-- ###### INSERcÃO DE PEDIDOS ###### --
 
 -- ######## PEDIDO 1 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
@@ -790,12 +790,94 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (10, 4, 254.00, 4);
 
+-- LETRA E --
+/*
+Exemplos de exclusão de dados em 5 tabelas. Mostre pelo menos um exemplo com
+DELETE aninhado, envolvendo mais de uma tabela 
+*/
+
+-- EXEMPLO 1 --
+-- EXCLUIR UM PEDIDO E SEUS ITENS
+DELETE FROM Contem
+WHERE idPedido = 1;
+
+-- SELECIONANDO OS PEDIDOS PARA VERIFICAR SE O PEDIDO 1 FOI EXCLUIDO
+SELECT * FROM Pedido;
+
+-- EXEMPLO 2 (DELETE ANINHADO) --
+-- EXCLUIR UM PEDIDO SE ELE CONTER UM PRODUTO COM PREÇO DE VENDA ABAIXO DE 200
+DELETE FROM Pedido
+WHERE idPedido IN (
+    SELECT idPedido
+    FROM Contem
+    WHERE preco_venda/quantidade_produto < 200
+);
+
+-- SELECIONANDO OS PEDIDOS PARA VERIFICAR SE OS PEDIDOS COM PRODUTOS COM PREÇO DE VENDA ABAIXO DE 200 FORAM EXCLUIDOS
+SELECT * 
+FROM Pedido 
+NATURAL JOIN Contem 
+WHERE preco_venda/quantidade_produto < 200;
+
+-- EXEMPLO 3 (DELETE ANINHADO) --
+-- EXCLUIR UM TELEFONE SE A PESSOA FOR DO TIPO 'C' E NÃO POSSUIR NENHUM ENDEEREÇO
+DELETE FROM Telefone
+WHERE idPessoa IN (
+    SELECT idPessoa
+    FROM Pessoa
+    WHERE tipo = 'C'
+        AND idPessoa NOT IN (
+            SELECT idPessoa
+            FROM Endereco
+        )
+);
+
+-- SELECIONANDO OS TELEFONES DAS PESSOAS DO TIPO 'C' E QUE NÃO POSSUEM ENDEREÇO PARA VERIFICAR SE O TELEFONE FOI EXCLUIDO
+SELECT *
+FROM Telefone
+NATURAL JOIN Pessoa
+NATURAL JOIN Endereco
+WHERE tipo = 'C';
+
+-- EXEMPLO 4 (DELETE ANINHADO) --
+-- EXCLUIR UM PRODUTO SE ELE NÃO ESTIVER EM NENHUM PEDIDO
+DELETE FROM Produto
+WHERE idProduto NOT IN (
+    SELECT idProduto
+    FROM Contem
+);
+
+-- SELECIONANDO OS PRODUTOS QUE NÃO FORAM VENDIDOS PARA VERIFICAR SE O PRODUTO FOI EXCLUIDO
+SELECT *
+FROM Produto
+NATURAL JOIN Contem;
+
+-- EXEMPLO 5 (DELETE ANINHADO) --
+-- EXCLUIR O ENDEREÇO DE TODOS OS FUNCIONÁRIOS DO TIPO 'A' QUE NÃO POSSUEM PEDIDOS
+DELETE FROM Endereco
+WHERE idPessoa IN (
+    SELECT idPessoa
+    FROM Pessoa
+    WHERE tipo = 'A'
+        AND idPessoa NOT IN (
+            SELECT idComprador
+            FROM Pedido
+        )
+);
+
+-- SELECIONANDO OS ENDEREÇOS DOS FUNCIONÁRIOS DO TIPO 'A' QUE NÃO POSSUEM PEDIDOS PARA VERIFICAR SE O ENDEREÇO FOI EXCLUIDO
+SELECT idPessoa, logradouro, cep, numero, bairro
+FROM Endereco
+NATURAL JOIN Pessoa
+NATURAL JOIN Pedido
+WHERE tipo = 'A';
+
 -- LETRA I
 /*
-(i) Exemplos de 3 procedimentos/funções, com e sem parâmetros, de entrada e de saída,
-contendo alguns comandos tais como IF, CASE WHEN, WHILE, declaração de
-variáveis e funções prontas. Inclua exemplos de como executar esses procedimentos/
-funções (valor: 10%);
+(i) Exemplos de 3 procedimentos/funcões, com e sem parâmetros, de entrada e de saída,
+contendo alguns comandos tais como IF, CASE WHEN, WHILE, declaracão de
+variáveis e funcões prontas. Inclua exemplos de como executar esses procedimentos/
+funcões (valor: 10%);
 */
 
 /*
@@ -813,13 +895,13 @@ DELIMITER ;
 -- CHAMA O PROCEDIMENTO
 CALL calcularLucroPorFilial(1, @lucro);
 
--- SELECIONA A TABELA CONTÉM PARA VALIDAÇÃO DO RESULTADO
+-- SELECIONA A TABELA CONTÉM PARA VALIDAcÃO DO RESULTADO
 SELECT * FROM Contem NATURAL JOIN Produto;
 
 /*
-Foi criado um procedimento que ajusta o preço do produto de acordo com o seu preço médio de venda,
-caso o preço média de venda for maior ou igual a 105% do preço do produto, o preço do produto sobe em 5%.
-Caso o preço médio de venda for menor que 90% do preço do produto, o preço do produto cai em 5%.
+Foi criado um procedimento que ajusta o preco do produto de acordo com o seu preco médio de venda,
+caso o preco média de venda for maior ou igual a 105% do preco do produto, o preco do produto sobe em 5%.
+Caso o preco médio de venda for menor que 90% do preco do produto, o preco do produto cai em 5%.
 */
 
 DELIMITER // 
@@ -859,13 +941,13 @@ BEGIN
 END // 
 DELIMITER ; 
 
--- SELECIONA A TABELA CONTÉM, PARA VERIFICAÇÃO DO SEU ESTADO ANTES DA EXECUÇÃO DO PROCEDIMENTO
+-- SELECIONA A TABELA CONTÉM, PARA VERIFICAcÃO DO SEU ESTADO ANTES DA EXECUcÃO DO PROCEDIMENTO
 SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
 
 -- CHAMA O PROCEDIMENTO
 CALL AjustarPrecoProduto();
 
--- SELECIONA A TABELA CONTÉM, PARA VERIFICAÇÃO DO SEU ESTADO DEPOIS DA EXECUÇÃO DO PROCEDIMENTO
+-- SELECIONA A TABELA CONTÉM, PARA VERIFICAcÃO DO SEU ESTADO DEPOIS DA EXECUcÃO DO PROCEDIMENTO
 SELECT * FROM Contem NATURAL JOIN Produto GROUP BY idProduto;
 
 
@@ -888,7 +970,7 @@ DELIMITER ;
 -- CHAMA O PROCEDIMENTO
 CALL produtoMaisVendidoPorFilial(3, @nomeProduto);
 
--- SELECIONA A TABELA CONTÉM PARA VALIDAÇÃO DO RESULTADO
+-- SELECIONA A TABELA CONTÉM PARA VALIDAcÃO DO RESULTADO
 SELECT * FROM Contem NATURAL JOIN Produto GROUP BY titulo;
 
 -- ####### TRIGGERS ####### --
@@ -976,7 +1058,7 @@ UPDATE Pedido
 SET idEntregador = 1
 WHERE idPedido = 1;
 
--- ####### CRIAÇÃO DE USUARIOS #######
+-- ####### CRIAcÃO DE USUARIOS #######
 CREATE USER 'gerente'@'localhost' IDENTIFIED BY '0000';
 CREATE USER 'funcionario'@'localhost' IDENTIFIED BY '1111';
 
