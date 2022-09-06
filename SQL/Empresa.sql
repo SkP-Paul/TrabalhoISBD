@@ -122,6 +122,62 @@ ADD CONSTRAINT fk_con_produto FOREIGN KEY (idProduto)
         ON DELETE CASCADE;
 
 
+
+-- LETRA B
+/*
+(b) Exemplos de ALTER TABLE (pelo menos 3 exemplos, envolvendo alterações
+diversas) e DROP TABLE. Crie uma tabela extra que não existe no seu trabalho,
+somente para exemplificar, e a apague no final com o DROP TABLE (valor: 2,5%);
+*/
+
+/*
+Uma tabela extra chamada "Usuario" foi criada para exemplificação.
+Inicialmente, ela contém sete atributos: idUsuario, nome, sobrenome, email, senha, idade e dataNasc. Abaixo há o código de criação dela.
+*/
+
+CREATE TABLE Usuario (
+idUsuario 	INT 			NOT NULL AUTO_INCREMENT,
+nome 		VARCHAR(20) 	NOT NULL,
+sobrenome 	VARCHAR(20) 	NOT NULL,
+email 		VARCHAR(50) 	NOT NULL,
+senha 		VARCHAR(50) 	NOT NULL,
+idade 		INT 			NOT NULL,
+dataNasc 	DATE 			NOT NULL,
+CONSTRAINT pk_usuario PRIMARY KEY (idUsuario)
+);
+
+/*
+Vamos supor que há dois tipos de usuários, um administrador, com privilégios totais a um sistema, e um usuário comum, que possui
+algumas restrições de funcionalidades. Para fazer essa diferenciação, podemos criar uma nova coluna do tipo CHAR de um caractere,
+chamada "tipo", que aceita somente dois valores: "A" para administrador e "C" para comum. Além disso, como a maioria dos novos usuários
+são do tipo comum, vamos definir um padrão para que toda inserção, caso não especificarmos, seja do tipo "C". O código abaixo faz isso que
+foi descrito.
+*/
+ALTER TABLE Usuario
+ADD COLUMN tipo CHAR(1) DEFAULT 'C';
+
+/*
+Agora, já temos a coluna "tipo", mas nada impede de um registro com um caractere diferente de "A" e "C" seja inserido.
+Então seria interessante adicionarmos uma nova restrição na nossa tabela, que limita os valores do atributo em somente "A" ou "C"
+*/
+ALTER TABLE Usuario
+ADD CONSTRAINT ck_tipo CHECK (tipo='A' OR tipo='C');
+
+/*
+Perceba que não faz muito sentido termos uma coluna chamada "idade" na nossa tabela, porque todo ano, quando o usuário fizer aniversário, 
+deveríamos atualizar seu valor. O correto é apenas deixar a coluna "dataNasc", porque semper quisermos saber a idade do usuário calculamos ela
+subtraindo a data atual por sua data de nascimento. No script abaixo apagamos essa coluna.
+*/
+
+ALTER TABLE Usuario
+DROP COLUMN idade;
+
+/*
+Por fim, vamos apagar essa nossa tabela extra. Podemos fazer isso utilizando o comando DROP TABLE, como pode ser visto no script abaixo:
+*/
+
+DROP TABLE Usuario;
+
 -- INSERÇÃO DAS FILIAIS
 
 INSERT INTO Filial (cnpj, cep, nome, numero, bairro, logradouro)
