@@ -872,6 +872,28 @@ NATURAL JOIN Pessoa
 NATURAL JOIN Pedido
 WHERE tipo = 'A';
 
+-- LETRA G --
+
+/*
+Exemplos de criação de de 3 visões (Views). Inclua também exemplos de como usar
+cada uma das visões criadas.
+*/
+
+-- CRIANDO A VISÃO VENDAS POR PRODUTO --
+CREATE VIEW Vendas AS
+SELECT 
+    Pedido.idFilial,
+    Contem.idProduto,
+    titulo AS nome_produto,
+    SUM(quantidade_produto) AS quantidade_vendida,
+    ROUND(preco, 2) AS valor_original,
+    ROUND(SUM(preco_venda/quantidade_produto - preco), 2) AS lucro_por_peca,
+    ROUND(SUM(preco_venda/quantidade_produto - preco) * SUM(quantidade_produto), 2) AS lucro_total
+FROM Pedido 
+    NATURAL JOIN Contem
+    JOIN Produto ON Produto.idProduto = Contem.idProduto
+GROUP BY Contem.idProduto;
+
 -- LETRA I
 /*
 (i) Exemplos de 3 procedimentos/funcões, com e sem parâmetros, de entrada e de saída,
