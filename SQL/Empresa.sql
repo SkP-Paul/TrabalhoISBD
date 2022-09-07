@@ -161,7 +161,7 @@ Agora, já temos a coluna "tipo", mas nada impede de um registro com um caracter
 Então seria interessante adicionarmos uma nova restricão na nossa tabela, que limita os valores do atributo em somente "A" ou "C"
 */
 ALTER TABLE Usuario
-ADD CONSTRAINT ck_tipo CHECK (tipo='A' OR tipo='C');
+ADD CONSTRAINT ck_tipo_usuario CHECK (tipo='A' OR tipo='C');
 
 /*
 Perceba que não faz muito sentido termos uma coluna chamada "idade" na nossa tabela, porque todo ano, quando o usuário fizer aniversário, 
@@ -177,6 +177,8 @@ Por fim, vamos apagar essa nossa tabela extra. Podemos fazer isso utilizando o c
 */
 
 DROP TABLE Usuario;
+
+-- LETRA C
 
 -- INSERcÃO DAS FILIAIS
 
@@ -790,7 +792,58 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (10, 4, 254.00, 4);
 
--- LETRA E --
+-- ##### LETRA D ##### --
+/*
+Exemplos de modificação de dados em 5 tabelas. Mostre pelo menos um exemplo
+com UPDATE aninhado, envolvendo mais de uma tabela
+*/
+
+-- EXEMPLO 1 --
+-- ATUALIZANDO O PREÇO DO PRODUTO DE ID: 1 --
+UPDATE Produto
+SET preco = 12.9
+WHERE idProduto = 1;
+
+-- SELECIONANDO O PRODUTO PARA VERIFICAR SE O UPDATE FOI UM SUCESSO --
+SELECT * FROM Produto WHERE idProduto = 1;
+
+-- EXEMPLO 2
+-- ATUALIZANDO O TELEFONE DE: 'Thomas Ian Monteiro' --
+UPDATE Telefone
+SET numero = '86997827594'
+WHERE idPessoa IN (SELECT idPessoa FROM Pessoa WHERE nome = 'Thomas Ian Monteiro');
+
+-- SELECIONANDO O TELEFONE PARA VERIFICAR SE O UPDATE FOI UM SUCESSO --
+SELECT * FROM Telefone WHERE numero = '86997827594';
+
+-- EXEMPLO 3
+-- ATUALIZANDO O GERENTE DA FILIAL 1 PARA: 'Emanuelly Sophie Mendes' --
+UPDATE Filial
+SET idGerente = (SELECT idPessoa FROM Pessoa WHERE nome = 'Emanuelly Sophie Mendes')
+WHERE idFilial = 1;
+
+-- SELECIONANDO A FILIAL PARA VERIFICAR SE O UPDATE FOI UM SUCESSO --
+SELECT * FROM Filial WHERE idFilial = 1;
+
+-- EXEMPLO 4
+-- ATUALIZANDO O ENTREGADOR PARA: 'Emanuel Cesar Jose Santos' REFERENTE AO PEDIDO DO CLIENTE: 'Andreia Mariah Lopes' --
+UPDATE Pedido
+SET idEntregador = (SELECT idPessoa FROM Pessoa WHERE nome = 'Emanuel Cesar Jose Santos')
+WHERE idComprador IN (SELECT idPessoa FROM Pessoa WHERE nome = 'Andreia Mariah Lopes');
+
+-- SELECIONANDO O PEDIDO PARA VERIFICAR SE O UPDATE FOI UM SUCESSO --
+SELECT * FROM Pedido WHERE idComprador IN (SELECT idPessoa FROM Pessoa WHERE nome = 'Andreia Mariah Lopes');
+
+-- EXEMPLO 5
+-- ATUALIZANDO O ENDEREÇO DO GERENTE DA FILIAL 3 --
+UPDATE Endereco
+SET logradouro = 'Rua Vincent Fabron', bairro = 'Centro', cep = '56213000', numero = '820'
+WHERE idPessoa IN (SELECT idGerente FROM Filial WHERE idFilial = 3);
+
+-- SELECIONANDO O ENDEREÇO PARA VERIFICAR SE O UPDATE FOI UM SUCESSO --
+SELECT * FROM Endereco WHERE idPessoa IN (SELECT idGerente FROM Filial WHERE idFilial = 3);
+
+-- ##### LETRA E ##### --
 /*
 Exemplos de exclusão de dados em 5 tabelas. Mostre pelo menos um exemplo com
 DELETE aninhado, envolvendo mais de uma tabela 
