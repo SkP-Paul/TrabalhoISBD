@@ -1,6 +1,12 @@
-CREATE SCHEMA Empresa;
+-- LETRA A
+/*
+	Criação de todas as tabelas e de todas as restrições de integridade. Todas as
+	restrições de chave (PRIMARY KEY) e de integridade referencial (FOREIGN KEY)
+	devem ser criadas. Além disso, crie pelo menos um exemplo com cada uma das
+	restrições UNIQUE e DEFAULT
+*/
 
--- DROP SCHEMA Empresa;
+CREATE SCHEMA Empresa;
 
 USE Empresa;
 
@@ -8,8 +14,8 @@ CREATE TABLE Pessoa (
     idPessoa		INT				NOT NULL AUTO_INCREMENT,
     cpf  			VARCHAR(11)		NOT NULL,
     nome 			VARCHAR(100) 	NOT NULL,
-    tipo			CHAR(1)			NOT NULL,
-    cnh				CHAR(14)		NULL,
+    tipo			VARCHAR(1)		NOT NULL DEFAULT 'C',
+    cnh				VARCHAR(14)		NULL,
     idFilial		INT				NOT NULL,
     CONSTRAINT pk_pessoa PRIMARY KEY (idPessoa),
 	CONSTRAINT uk_cpf UNIQUE (cpf),
@@ -22,7 +28,7 @@ CREATE TABLE Endereco (
     idPessoa		INT				NOT NULL,
     logradouro		VARCHAR(50)		NOT NULL,
     bairro			VARCHAR(30)		NOT NULL,
-    cep				CHAR(8)			NOT NULL,
+    cep				VARCHAR(8)		NOT NULL,
     numero			INT				NOT NULL,
     CONSTRAINT pk_endereco PRIMARY KEY (idEndereco)
 );
@@ -66,7 +72,7 @@ CREATE TABLE Filial (
 CREATE TABLE Produto (
 	idProduto		INT 			NOT NULL AUTO_INCREMENT,
 	descricao		VARCHAR(256)	NOT NULL,
-    estoque			INT(10)			NOT NULL,
+    estoque			INT				NOT NULL,
     preco			REAL			NOT NULL,
     titulo			VARCHAR(50)		NOT NULL,
     idFilial		INT				NOT NULL,
