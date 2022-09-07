@@ -199,7 +199,7 @@ VALUES ('47581605000187', '01128080', 'Rayssa e Igor Comercio de Bebidas ME', 51
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('59145566518', 'Thomas Ian Monteiro', 'A', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (1, 'Rua Governador Raimundo Artur de Vasconcelos', 'Marques de Paranagua', '64002508', 450);
 
@@ -213,7 +213,7 @@ VALUES (1, '86997285749');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('51468368419', 'Andreia Mariah Lopes', 'C', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (2, 'Rua Marcelo Pasquali Carlo Pirfo', 'Conjunto Manoel Mendes', '38082162', 957);
 
@@ -227,7 +227,7 @@ VALUES (2, '34998239025');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('20763488593', 'Jennifer Milena Drumond', 'G', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (3, 'Rua Mario Matiotte', 'Industrial', '49065415', 600);
 
@@ -247,7 +247,7 @@ WHERE idFilial = 1;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('62111882267', '01294177148', 'Mariana Amanda Juliana Cavalcanti', 'E', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (4, 'Rua 15 A', 'Taquarussu', '77080066', 955);
 
@@ -261,7 +261,7 @@ VALUES (4, '63988536630');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('51072135108', 'Emanuelly Sophie Mendes', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (5, 'Rua Professora Vaneida Soares Bezerra', 'Cidade Universitaria', '63048120', 430);
 
@@ -275,7 +275,7 @@ VALUES (5, '88981490510');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68903979672', 'Sebastiao Felipe dos Santos', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (6, 'Rua Cecilia Meireles', 'Tiradentes', '69103224', 423);
 
@@ -289,7 +289,7 @@ VALUES (6, '92999399937');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('95447891892', 'Catarina Alicia Barbara Viana', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (7, 'Rua Nova Corrente', 'Arruda', '52120311', 562);
 
@@ -303,7 +303,7 @@ VALUES (7, '81996166447');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68125510311', 'Maya Isabel Tatiane da Rosa', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (8, 'Avenida das Acacias', 'Residencial Parque das Acacias', '77425650', 789);
 
@@ -317,7 +317,7 @@ VALUES (8, '63981710164');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('04396033230', 'Marcos Caleb Rodrigues', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (9, 'Rua Maria Povoa Braga', 'Vivendas do Parque', '79044070', 909);
 
@@ -331,7 +331,7 @@ VALUES (9, '67993663927');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('38212366391', 'Raimunda Elisa Lorena da Cunha', 'O', 1);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (10, 'Travessa Santa Lucia', 'Lamarao', '49088300', 548);
 
@@ -347,7 +347,7 @@ VALUES (10, '79987594285');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('09562249034', 'Nair Josefa Martins', 'A', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (11, 'Travessa Mariz e Barros', 'Pedreira', '66080008', 783);
 
@@ -361,7 +361,7 @@ VALUES (11, '91998835462');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('52244826317', 'Regina Alessandra Baptista', 'C', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (12, 'Rua Veu de Noiva', 'Parque Sonhos Dourados', '77818814', 291);
 
@@ -375,7 +375,7 @@ VALUES (12, '63996648608');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('68947505803', 'Manoel Breno Ruan da Mota', 'G', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (13, 'Rua Duque de Caxias', 'Vilinha', '65915512', 803);
 
@@ -395,7 +395,7 @@ WHERE idFilial = 2;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('59529529333', '18871158358', 'Emanuel Cesar Jose Santos', 'E', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (14, 'Quadra QNN 27 Modulo A', 'Ceilandia Norte Ceilandia', '72225271', 563);
 
@@ -409,7 +409,7 @@ VALUES (14, '61981508532');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('52984760743', 'Mario Henrique Arthur Porto', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (15, 'Rua Sao Sebastiao', 'Gilberto Mestrinho', '69086711', 177);
 
@@ -423,7 +423,7 @@ VALUES (15, '92998810721');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('46806387616', 'Eliane Natalia Moura', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (16, 'Rua F', 'Atalaia', '49038029', 337);
 
@@ -437,7 +437,7 @@ VALUES (16, '79982765342');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('58965060150', 'Elza Sophie Teresinha Farias', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (17, 'Quadra QR 503 Conjunto 13', 'Samambaia Sul Samambaia', '72311615', 398);
 
@@ -451,7 +451,7 @@ VALUES (17, '61988153819');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('08615545316', 'Erick Kaue Emanuel Ferreira', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (18, 'Rua Cataratas', 'Parque Poti', '64081380', 171);
 
@@ -465,7 +465,7 @@ VALUES (18, '86988735315');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('94573811907', 'Luzia Tania da Costa', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (19, 'Rua Fernando Correa da Costa', 'Setor Rodoviaria', '78750799', 851);
 
@@ -479,7 +479,7 @@ VALUES (19, '66987817280');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('06126894413', 'Thiago Kaique Fogaca', 'O', 2);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (20, 'Rua Marcelina Piccoli Zanrosso', 'Cruzeiro', '95074309', 503);
 
@@ -496,7 +496,7 @@ VALUES (20, '54999774554');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('73043687809', 'Tatiane Valentina Barbosa', 'A', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (21, 'Alameda Cinquenta e Nove', 'Tapana Icoaraci', '66831059', 566);
 
@@ -510,7 +510,7 @@ VALUES (21, '91998036905');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('13199238289', 'Kaue Thomas Aragao', 'C', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (22, 'Alameda Barbados', 'Ponta Negra', '69037091', 945);
 
@@ -524,7 +524,7 @@ VALUES (22, '92982444775');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('27737832122', 'Luana Raimunda Isis Porto', 'G', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (23, 'Rua Y Dois', 'Distrito Industrial', '58082025', 456);
 
@@ -544,7 +544,7 @@ WHERE idFilial = 3;
 INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
 VALUES ('60530592347', '24855707935', 'Jorge Joaquim Diogo Carvalho', 'E', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (24, 'Rua Chico Mendes', 'Mathias Velho', '92330085', 797);
 
@@ -558,7 +558,7 @@ VALUES (24, '51993759129');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('45164223791', 'Adriana Marcela da Luz', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (25, 'Rua Paes Leme', 'Itangua', '29149790', 298);
 
@@ -572,7 +572,7 @@ VALUES (25, '27992097631');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('05402755060', 'Enrico Claudio Teixeira', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (26, 'Rua Alemanha', 'Parque Bonfim', '87507375', 886);
 
@@ -586,7 +586,7 @@ VALUES (26, '44994596193');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('94882624869', 'Elza Simone Gomes', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (27, 'Rua 25 de Agosto', 'Eduardo Braga I', '69103444', 442);
 
@@ -600,7 +600,7 @@ VALUES (27, '92999473350');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('87618577501', 'Sergio Pietro Figueiredo', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (28, 'Rua dos Crisantemos', 'Setor Sonia Regina Taquaralto', '77060688', 871);
 
@@ -614,7 +614,7 @@ VALUES (28, '63992778153');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('90320321606', 'Cristiane Caroline Malu Pinto', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (29, 'Travessa Rosina Matos', 'Aeroporto', '49037653', 211);
 
@@ -628,13 +628,27 @@ VALUES (29, '79986996088');
 INSERT INTO Pessoa (cpf, nome, tipo, idFilial)
 VALUES ('10719031877', 'Bianca Alessandra Maite Ferreira', 'O', 3);
 
--- ENDEREcO
+-- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
 VALUES (30, 'Estrada do Aeroporto', 'Sao Jose', '69552610', 615);
 
 -- TELEFONE
 INSERT INTO Telefone (idPessoa, numero)
 VALUES (30, '97992874058');
+
+----------------------------------------------------------------------------------------------------
+
+-- FUNCIONÁRIO
+INSERT INTO Pessoa (cpf, cnh, nome, tipo, idFilial)
+VALUES ('32882226985', '24855707735', 'Manuel Matheus Nunes', 'E', 3);
+
+-- ENDEREÇO
+INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
+VALUES (31, 'Avenida Olintho Cadinal', 'Bairro São Domingos', '79906612', 619);
+
+-- TELEFONE
+INSERT INTO Telefone (idPessoa, numero)
+VALUES (31, '51993759129');
 
 ----------------------------------------------------------------------------------------------------
 
@@ -757,7 +771,7 @@ VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688'
 
 -- ITEMS DO PEDIDO 6
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (6, 13, 10.50, 2);
+VALUES (6, 13, 100.50, 2);
 
 
 -- ######## PEDIDO 7 ######## --
@@ -770,7 +784,7 @@ VALUES (7, 1, 274.00, 1);
 
 -- ######## PEDIDO 8 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
-VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Mario Matiotte', '49065415', 600, 'Industrial', '2021-03-12', 3, 4, 3);
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Mario Matiotte', '49065415', 600, 'Industrial', '2021-03-12', 3, 4, 7);
 
 -- ITEMS DO PEDIDO 8 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
@@ -778,7 +792,7 @@ VALUES (8, 1, 233.00, 1);
 
 -- ######## PEDIDO 9 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
-VALUES ('Pedido de teste', '2021-03-12', 0, 'Taquarussu', '77080066', 955, 'Rua 15 A', '2021-03-12', 3, 4, 4);
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Taquarussu', '77080066', 955, 'Rua 15 A', '2021-03-12', 3, 4, 6);
 
 -- ITEMS DO PEDIDO 9 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
@@ -790,7 +804,34 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 
 -- ITEMS DO PEDIDO 10 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (10, 4, 254.00, 4);
+VALUES (10, 4, 454.00, 4);
+
+-- ######## PEDIDO 11 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 3, 4, 5);
+
+-- ITEMS DO PEDIDO 11 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (11, 4, 634.00, 7);
+
+-- ######## PEDIDO 12 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 1, 4, 12);
+
+-- ITEMS DO PEDIDO 12 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (12, 4, 432.96, 3);
+
+-- ######## PEDIDO 13 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-07-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 1, 4, 12);
+
+-- ITEMS DO PEDIDO 13 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (13, 7, 432.96, 3);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (13, 8, 432.96, 3);
 
 -- ##### LETRA D ##### --
 /*
@@ -933,6 +974,9 @@ cada uma das visões criadas.
 */
 
 -- CRIANDO A VISÃO VENDAS POR PRODUTO --
+/*
+Visão que mostra os dados de vendas de cada produto
+*/
 CREATE VIEW Vendas AS
 SELECT 
     Pedido.idFilial,
@@ -940,9 +984,9 @@ SELECT
     titulo AS nome_produto,
     SUM(quantidade_produto) AS quantidade_vendida,
     ROUND(preco, 2) AS preco_original,
-    ROUND(SUM(preco_venda / quantidade_produto), 2) AS preco_vendido,
-    ROUND(SUM(preco_venda / quantidade_produto - preco), 2) AS lucro_por_peca,
-    ROUND(SUM(preco_venda / quantidade_produto - preco) * SUM(quantidade_produto), 2) AS lucro_total
+    ROUND(AVG(preco_venda / quantidade_produto), 2) AS media_preco_vendido,
+    ROUND(AVG(preco_venda / quantidade_produto) - preco, 2) AS lucro_por_peca,
+    ROUND((AVG(preco_venda / quantidade_produto) - preco) * SUM(quantidade_produto), 2) AS lucro_total
 FROM Pedido 
     NATURAL JOIN Contem
     JOIN Produto ON Produto.idProduto = Contem.idProduto
@@ -956,6 +1000,59 @@ SELECT * FROM Vendas WHERE idFilial = 1;
 
 -- SELECIONANDO OS DADOOS DA VISÃO VENDAS DOS PRODUTOS QUE FORAM VENDIDAS MAIS DE 10 UNIDADES --
 SELECT * FROM Vendas WHERE quantidade_vendida > 10;
+
+-- CRIANDO A VISÃO DE CLIENTES --
+/*
+Visão que permite ver os dados de todos os clientes que já realizaram pedidos, permitindo ver o total de pedidos realizados, o total de itens comprados e o total gasto em todos os pedidos.
+*/
+CREATE VIEW Clientes AS
+SELECT
+    idPessoa,
+    nome,
+    tipo,
+    COUNT(*) AS quantidade_de_pedidos,
+    SUM(quantidade_produto) AS quantidade_de_produtos_comprados,
+    ROUND(SUM(preco_venda), 2) AS valor_total_comprado
+FROM Pessoa
+    JOIN Pedido ON Pedido.idComprador = Pessoa.idPessoa
+    JOIN Contem ON Contem.idPedido = Pedido.idPedido
+    JOIN Produto ON Produto.idProduto = Contem.idProduto
+GROUP BY Pessoa.idPessoa;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES --
+SELECT * FROM Clientes;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE REALIZARAM MAIS DE 2 PEDIDOS --
+SELECT * FROM Clientes WHERE quantidade_de_pedidos > 2;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE COMPRARAM MAIS DE 10 PRODUTOS --
+SELECT * FROM Clientes WHERE quantidade_de_produtos_comprados > 10;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE COMPRARAM MAIS DE 1000 REAIS --
+SELECT * FROM Clientes WHERE valor_total_comprado > 1000;
+
+
+-- CRIANDO A VISÃO DE FUNCIONÁRIOS --
+CREATE VIEW FILIAIS AS
+SELECT 
+    Filial.idFilial,
+    Filial.nome,
+    COUNT(CASE WHEN tipo = 'A' THEN 1 END) AS quantidade_de_funcionarios_clientes,
+    COUNT(CASE WHEN tipo = 'E' THEN 1 END) AS quantidade_de_funcionarios_entregadores,
+    COUNT(CASE WHEN tipo = 'G' THEN 1 END) AS quantidade_de_funcionarios_gerentes,
+    COUNT(CASE WHEN tipo = 'O' THEN 1 END) AS quantidade_de_funcionarios_genericos
+FROM Filial 
+    JOIN Pessoa
+    ON Filial.idFilial = Pessoa.idFilial
+WHERE tipo != 'C'
+GROUP BY Filial.idFilial;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE FUNCIONÁRIOS --
+SELECT * FROM FILIAIS;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE FUNCIONÁRIOS DA FILIAL 1 --
+SELECT * FROM FILIAIS WHERE idFilial = 1;
+
 
 -- LETRA I
 /*
