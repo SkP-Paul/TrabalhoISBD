@@ -755,7 +755,7 @@ VALUES ('Pedido de teste', '2021-06-12', 0, 'Avenida Joao Aureliano', '77060688'
 
 -- ITEMS DO PEDIDO 6
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (6, 13, 10.50, 2);
+VALUES (6, 13, 100.50, 2);
 
 
 -- ######## PEDIDO 7 ######## --
@@ -788,7 +788,15 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 
 -- ITEMS DO PEDIDO 10 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
-VALUES (10, 4, 254.00, 4);
+VALUES (10, 4, 454.00, 4);
+
+-- ######## PEDIDO 11 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 3, 4, 5);
+
+-- ITEMS DO PEDIDO 11 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (11, 4, 634.00, 7);
 
 -- LETRA E --
 /*
@@ -887,9 +895,9 @@ SELECT
     titulo AS nome_produto,
     SUM(quantidade_produto) AS quantidade_vendida,
     ROUND(preco, 2) AS preco_original,
-    ROUND(SUM(preco_venda / quantidade_produto), 2) AS preco_vendido,
-    ROUND(SUM(preco_venda / quantidade_produto - preco), 2) AS lucro_por_peca,
-    ROUND(SUM(preco_venda / quantidade_produto - preco) * SUM(quantidade_produto), 2) AS lucro_total
+    ROUND(AVG(preco_venda / quantidade_produto), 2) AS media_preco_vendido,
+    ROUND(AVG(preco_venda / quantidade_produto) - preco, 2) AS lucro_por_peca,
+    ROUND((AVG(preco_venda / quantidade_produto) - preco) * SUM(quantidade_produto), 2) AS lucro_total
 FROM Pedido 
     NATURAL JOIN Contem
     JOIN Produto ON Produto.idProduto = Contem.idProduto
@@ -903,6 +911,59 @@ SELECT * FROM Vendas WHERE idFilial = 1;
 
 -- SELECIONANDO OS DADOOS DA VISÃO VENDAS DOS PRODUTOS QUE FORAM VENDIDAS MAIS DE 10 UNIDADES --
 SELECT * FROM Vendas WHERE quantidade_vendida > 10;
+
+-- CRIANDO A VISÃO DE CLIENTES --
+/*
+Visão que permite ver os dados de todos os clientes que já realizaram pedidos, permitindo ver o total de pedidos realizados, o total de itens comprados e o total gasto em todos os pedidos.
+*/
+CREATE VIEW Clientes AS
+SELECT
+    idPessoa,
+    nome,
+    tipo,
+    COUNT(*) AS quantidade_de_pedidos,
+    SUM(quantidade_produto) AS quantidade_de_produtos_comprados,
+    ROUND(SUM(preco_venda), 2) AS valor_total_comprado
+FROM Pessoa
+    JOIN Pedido ON Pedido.idComprador = Pessoa.idPessoa
+    JOIN Contem ON Contem.idPedido = Pedido.idPedido
+    JOIN Produto ON Produto.idProduto = Contem.idProduto
+GROUP BY Pessoa.idPessoa;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES --
+SELECT * FROM Clientes;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE REALIZARAM MAIS DE 2 PEDIDOS --
+SELECT * FROM Clientes WHERE quantidade_de_pedidos > 2;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE COMPRARAM MAIS DE 10 PRODUTOS --
+SELECT * FROM Clientes WHERE quantidade_de_produtos_comprados > 10;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE CLIENTES QUE COMPRARAM MAIS DE 1000 REAIS --
+SELECT * FROM Clientes WHERE valor_total_comprado > 1000;
+
+
+-- CRIANDO A VISÃO DE FUNCIONÁRIOS --
+CREATE VIEW FILIAIS AS
+SELECT 
+    Filial.idFilial,
+    Filial.nome,
+    COUNT(CASE WHEN tipo = 'A' THEN 1 END) AS quantidade_de_funcionarios_clientes,
+    COUNT(CASE WHEN tipo = 'E' THEN 1 END) AS quantidade_de_funcionarios_entregadores,
+    COUNT(CASE WHEN tipo = 'G' THEN 1 END) AS quantidade_de_funcionarios_gerentes,
+    COUNT(CASE WHEN tipo = 'O' THEN 1 END) AS quantidade_de_funcionarios_genericos
+FROM Filial 
+    JOIN Pessoa
+    ON Filial.idFilial = Pessoa.idFilial
+WHERE tipo != 'C'
+GROUP BY Filial.idFilial;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE FUNCIONÁRIOS --
+SELECT * FROM FILIAIS;
+
+-- SELECIONANDO OS DADOS DA VISÃO DE FUNCIONÁRIOS DA FILIAL 1 --
+SELECT * FROM FILIAIS WHERE idFilial = 1;
+
 
 -- LETRA I
 /*
