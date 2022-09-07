@@ -966,6 +966,106 @@ NATURAL JOIN Pessoa
 NATURAL JOIN Pedido
 WHERE tipo = 'A';
 
+-- LETRA F --
+/*
+    Exemplos de, pelo menos, 12 consultas. Inclua consultas simples e complexas,
+    envolvendo todas as cláusulas do comando de consulta (SELECT, FROM, WHERE,
+    ORDER BY, GROUP BY, HAVING), os operadores (JOIN, OUTER JOIN,
+    UNION, AND, OR, NOT, BETWEEN, IN, LIKE, IS NULL, ANY/SOME, ALL,
+    EXISTS), além de funções agregadas e consultas aninhadas (subconsultas). Não faça
+    aninhamentos "forçados", somente os use em situações onde é difícil escrever uma
+    consulta sem aninhamento. Será avaliado o nível de complexidade das consultas
+    apresentadas.
+*/
+
+-- 1) Recupere o nome, o cpf e a cnh de todas as pessoas que são do tipo E (entregador), ordenando em ordem alfabética pelo nome
+SELECT nome, cpf, cnh 
+FROM Pessoa
+WHERE tipo = 'E'
+ORDER BY nome;
+
+-- 2) Recupere o nome e o cnpj das pessoas que gerenciam pelo menos uma filial
+SELECT nome, cpf 
+FROM Pessoa where
+idPessoa IN (SELECT idGerente FROM Filial);
+
+-- 3) Recupere a quantidade de pessoas que são do tipo 'O' (outro funcionário)
+SELECT count(*) AS quantidade 
+FROM Pessoa
+WHERE tipo = 'O';
+
+-- 4) Recupere a soma dos preços, o menor preço, o maior preço, e a média de preços dos produtos da filial com CNPJ 64045511000102
+SELECT SUM(p.preco), MIN(p.preco), MAX(p.preco), AVG(p.preco)
+FROM Produto AS p JOIN Filial AS f
+WHERE p.idFilial = f.idFilial AND f.cnpj = '64045511000102';
+
+-- 5) Selecione o nome, o cpf e o tipo de todas as pessoas no qual o nome começa com a letra 'E'
+SELECT nome, cpf, tipo 
+FROM Pessoa
+WHERE nome LIKE 'E%';
+
+-- 6) Selecione todos os pedidos em que a data de emissão está entre 2019 a 2021, inclusive.
+SELECT *
+FROM Pedido
+WHERE data_emissao BETWEEN '2020/01/01' AND '2021/12/31';
+
+-- 7) Selecione o nome, o cpf e o tipo das pessoas que são do tipo 'C' (comprador) ou que são do tipo 'G' (gerente)
+SELECT nome, cpf, tipo
+FROM Pessoa
+WHERE tipo = 'C' OR tipo = 'G';
+
+-- 8) Recupere o id, a descrição e a quantiade de todos os produtos que já foram contidos em algum pedido. Recupere apenas os produtos que estão contidos mais de uma vez.
+SELECT c.idProduto, COUNT(idProduto) as quantidade_contida
+FROM Contem AS c
+GROUP BY c.idProduto
+HAVING quantidade_contida > 1;  
+
+-- 9 Selecione o nome das filiais que tem um ou mais pedidos OU que possui 15 produtos ou menos
+SELECT f.nome
+FROM Filial AS f
+NATURAL JOIN Pedido AS p
+GROUP BY p.idFilial
+HAVING COUNT(p.idFilial) >= 1
+UNION
+SELECT f.nome
+FROM Filial AS f
+JOIN Produto AS p ON p.idFilial = p.idFilial
+GROUP BY (f.idFilial)
+HAVING count(p.idProduto) <= 15;
+
+-- 10) Selecione o id, a descrição e o preço dos produtos em que o preço é menor do que ALGUM produto da filial 2
+SELECT idProduto, descricao, preco 
+FROM Produto
+WHERE preco <SOME (SELECT preco FROM Produto WHERE idFilial = 2);
+
+-- 11) Selecione o id, a descrição e o preço dos produtos em que o preço é maior do que QUALQUER produto da filial 2
+SELECT idProduto, descricao, preco 
+FROM Produto
+WHERE preco >ALL (SELECT preco FROM Produto WHERE idFilial = 2);
+
+-- 12) Selecione o nome de todas as pessoas cujo CNH é nulo;
+SELECT nome 
+FROM Pessoa
+WHERE cnh IS NULL;
+
+-- 13) Selecione todos os produtos que não existem na tabela Contem
+SELECT p.* 
+FROM Produto AS p 
+WHERE NOT EXISTS (SELECT idProduto FROM Contem AS c WHERE c.idProduto = p.idProduto);
+
+/* 14) Selecione o nome e o cnpj da filial, o id, a descrição, o preço e a quantidade em estoque do produto para todos os produtos que não não 
+pertencem a filial de id 1. Se uma filial não possuir produto, seu nome e cnpj também deve ser ser listado.*/
+SELECT f.nome, f.cnpj, p.idProduto, p.descricao, p.preco, p.estoque
+FROM Filial AS f LEFT OUTER JOIN Produto AS p ON f.idFilial = p.idFilial
+WHERE p.idFIlial != 1; 
+
+/* 
+	Observação: Ao fazer o mapeamento do DER para o modelo relacional, usamos técnicas que evitam valores nulos devido
+	suas desvantagens. Por essa razão, no nosso banco de dados não há nenhuma tabela que possui chave estrangeira que permitem NULL.
+    Assim, a consulta 14, que utiliza o LEFT OUTER JOIN, nos retornaria o mesmo resultado se usássemos o INNER JOIN, por exemplo,
+    e, portanto, ela foi feita desse jeito apenas para cumprirmos todos os requisistos da questão.
+*/
+
 -- LETRA G --
 
 /*
