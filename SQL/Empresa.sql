@@ -558,11 +558,11 @@ VALUES ('45164223791', 'Adriana Marcela da Luz', 'O', 3);
 
 -- ENDEREÇO
 INSERT INTO Endereco (idPessoa, logradouro, bairro, cep, numero)
-VALUES (31, 'Rua Paes Leme', 'Itangua', '29149790', 298);
+VALUES (25, 'Rua Paes Leme', 'Itangua', '29149790', 298);
 
 -- TELEFONE
 INSERT INTO Telefone (idPessoa, numero)
-VALUES (31, '27992097631');
+VALUES (25, '27992097631');
 
 ----------------------------------------------------------------------------------------------------
 
@@ -782,7 +782,7 @@ VALUES (7, 1, 274.00, 1);
 
 -- ######## PEDIDO 8 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
-VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Mario Matiotte', '49065415', 600, 'Industrial', '2021-03-12', 3, 4, 3);
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Mario Matiotte', '49065415', 600, 'Industrial', '2021-03-12', 3, 4, 7);
 
 -- ITEMS DO PEDIDO 8 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
@@ -790,7 +790,7 @@ VALUES (8, 1, 233.00, 1);
 
 -- ######## PEDIDO 9 ######## --
 INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
-VALUES ('Pedido de teste', '2021-03-12', 0, 'Taquarussu', '77080066', 955, 'Rua 15 A', '2021-03-12', 3, 4, 4);
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Taquarussu', '77080066', 955, 'Rua 15 A', '2021-03-12', 3, 4, 6);
 
 -- ITEMS DO PEDIDO 9 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
@@ -811,6 +811,25 @@ VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezer
 -- ITEMS DO PEDIDO 11 --
 INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
 VALUES (11, 4, 634.00, 7);
+
+-- ######## PEDIDO 12 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-03-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 1, 4, 12);
+
+-- ITEMS DO PEDIDO 12 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (12, 4, 432.96, 3);
+
+-- ######## PEDIDO 13 ######## --
+INSERT INTO Pedido (observacao, data_emissao, status_pagamento, logradouro_entrega, cep_entrega, numero_entrega, bairro_entrega, data_entrega, idFilial, idEntregador, idComprador)
+VALUES ('Pedido de teste', '2021-07-12', 0, 'Rua Professora Vaneida Soares Bezerra', '63048120', 430, 'Cidade Universitaria', '2021-03-12', 1, 4, 12);
+
+-- ITEMS DO PEDIDO 13 --
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (13, 7, 432.96, 3);
+
+INSERT INTO Contem (idPedido,idProduto, preco_venda, quantidade_produto)
+VALUES (13, 8, 432.96, 3);
 
 -- LETRA E --
 /*
